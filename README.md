@@ -60,3 +60,25 @@ lab setup( for cybersecurity and ethical hacking practice )
                 │                             │
                 └─────────── 🔐 ─────────────┘
                      Controlled Testing
+
+
+## 📋 Week 01 Progress
+
+<div align="center">
+
+| Task | Status |
+|:---|:---:|
+| ⚙️ Install Oracle VirtualBox | ✅ Completed |
+| 📦 Download Kali Linux Virtual Machine | ✅ Completed |
+| 🗜️ Extract Kali VirtualBox Image | ✅ Completed |
+| 🐉 Import Kali Linux VM | ✅ Completed |
+| 🌐 Create NAT Network | ✅ Completed |
+| 🔧 Configure Kali Network | ✅ Completed |
+| 🪟 Setup Windows Victim VM | ✅ Completed |
+| 🔗 Verify Kali ↔ Windows Connectivity | ✅ Completed |
+| 📸 Create VM Snapshots | ✅ Completed |
+| 🧪 Verify Isolated Lab Environment | ✅ Completed |
+
+</div>
+
+---
