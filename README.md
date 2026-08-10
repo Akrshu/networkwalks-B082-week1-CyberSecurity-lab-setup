@@ -5,182 +5,362 @@ lab setup( for cybersecurity and ethical hacking practice )
 <p align="center">
 
 ![Kali Linux](https://img.shields.io/badge/Kali%20Linux-2026.2-557C94?style=for-the-badge&logo=kalilinux&logoColor=white)
-
-![VirtualBox](https://img.shields.io/badge/Oracle%20VirtualBox-Lab-183A61?style=for-the-badge&logo=virtualbox&logoColor=white)
-
-![Networking](https://img.shields.io/badge/Networking-10.0.0.0%2F24-blue?style=for-the-badge)
-
+![VirtualBox](https://img.shields.io/badge/VirtualBox-Lab-183A61?style=for-the-badge&logo=virtualbox&logoColor=white)
+![Network](https://img.shields.io/badge/Network-10.0.0.0%2F24-blue?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Week%201-Completed-success?style=for-the-badge)
 
 </p>
 
 <p align="center">
-  <b>A hands-on cybersecurity laboratory built for learning networking, penetration testing and ethical hacking in a controlled virtual environment.</b>
+  <b>Hands-on cybersecurity laboratory for networking, ethical hacking and penetration-testing practice in a controlled virtual environment.</b>
+</p>
+
+<p align="center">
+  🎓 <b>NetworkWalks Academy</b> &nbsp; • &nbsp;
+  📚 <b>Batch B082</b> &nbsp; • &nbsp;
+  🗓️ <b>Week 01</b>
 </p>
 
 ---
 
-## 📌 Table of Contents
+# 📌 Table of Contents
 
-- [🎯 Objective](#-objective)
-- [🛡️ Why an Isolated Lab](#️-why-an-isolated-lab)
-- [🏗️ Lab Architecture](#️-lab-architecture)
-- [💻 Environment](#-environment)
-- [🌐 Network Configuration](#-network-configuration)
-- [⚙️ Week 1 Setup](#️-week-1-setup)
-- [🧪 Verification & Testing](#-verification--testing)
-- [📸 Screenshots](#-screenshots)
-- [⚠️ Problems & Solutions](#️-problems--solutions)
-- [💾 Snapshot & Recovery Strategy](#-snapshot--recovery-strategy)
-- [🧠 What I Learned](#-what-i-learned)
-- [🧰 Tools Used](#-tools-used)
-- [🚀 Next Steps](#-next-steps)
-- [👨‍💻 Author](#-author)
-- [⚠️ Disclaimer](#️-disclaimer)
+- 🎯 [Purpose of the Lab](#-purpose-of-the-lab)
+- 🛡️ [Why an Isolated Network?](#️-why-an-isolated-network)
+- 🏗️ [Lab Architecture](#️-lab-architecture)
+- 💻 [Lab Environment](#-lab-environment)
+- 🌐 [Network Configuration](#-network-configuration)
+- ⚙️ [Step-by-Step Setup](#️-step-by-step-setup)
+- 🧪 [Verification Tests](#-verification-tests)
+- 📸 [Screenshots](#-screenshots)
+- ⚠️ [Problems & Solutions](#️-problems--solutions)
+- 💾 [Snapshot & Backup Strategy](#-snapshot--backup-strategy)
+- 🧠 [What I Learned](#-what-i-learned)
+- 🧰 [Tools & Resources](#-tools--resources)
+- 🎥 [Project Demo](#-project-demo)
+- 🚀 [Next Steps](#-next-steps)
+- 👨‍💻 [Author](#-author)
+- ⚠️ [Disclaimer](#️-disclaimer)
 
 ---
 
-# 🎯 Objective
+# 🎯 Purpose of the Lab
 
-The objective of this project is to build a controlled cybersecurity laboratory for practicing:
+The goal of this project is to build a **controlled cybersecurity laboratory** for practicing:
 
 - 🔐 Cybersecurity fundamentals
-- 🌐 Computer networking
+- 🌐 Networking
 - 🐉 Kali Linux
-- 🧪 Penetration testing
-- 🔎 Network reconnaissance
-- 🛡️ Ethical hacking
+- 🧪 Penetration Testing
+- 🔎 Network Reconnaissance
+- 🛡️ Ethical Hacking
 
-The lab is designed using virtual machines so that security experiments can be performed safely without affecting real-world systems or networks.
+The lab provides a safe environment where security experiments can be performed on intentionally configured virtual machines.
 
 ---
 
-# 🛡️ Why an Isolated Lab?
+# 🛡️ Why an Isolated Network?
 
-Cybersecurity experiments may involve activities such as network scanning, service enumeration and security testing.
+Cybersecurity testing can involve network scanning, service enumeration and other activities that generate network traffic.
 
-Performing these activities on systems without authorization can cause:
+Using an isolated virtual network helps:
 
-- Unwanted network traffic
-- Service disruption
-- Security alerts
-- Accidental damage
-- Legal and ethical issues
+- 🔒 Prevent accidental interaction with real systems
+- 🧪 Provide a controlled environment for experiments
+- 🌐 Allow communication between intentionally configured VMs
+- 🔄 Make the environment easy to reset and reproduce
 
-Therefore, this project uses an **isolated virtual laboratory** where the machines are intentionally created for security testing.
-
-This provides a safe environment for learning and experimentation.
-
-> ⚠️ All testing in this project is intended only for systems that I own or have explicit permission to test.
+> ⚠️ All security testing in this project is performed only on systems that I own or have explicit authorization to test.
 
 ---
 
 # 🏗️ Lab Architecture
 
-The planned laboratory consists of an attacker machine and controlled victim environments.
-
 ```text
-                         HOST MACHINE
-                         Windows PC
+                         🖥️ HOST MACHINE
+                             Windows
+                                │
+                                ▼
+                       ┌────────────────┐
+                       │   VirtualBox   │
+                       └───────┬────────┘
+                               │
+                               ▼
+                    ┌────────────────────┐
+                    │      CyberLab      │
+                    │   NAT Network      │
+                    │   10.0.0.0/24      │
+                    └─────────┬──────────┘
                               │
-                              ▼
-                    ┌──────────────────┐
-                    │    VirtualBox    │
-                    │  Virtualization  │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │    CyberLab      │
-                    │  NAT Network     │
-                    │  10.0.0.0/24     │
-                    └────────┬─────────┘
-                             │
-              ┌──────────────┼──────────────┐
-              │              │              │
-              ▼              ▼              ▼
-        ┌──────────┐   ┌──────────┐   ┌──────────┐
-        │   Kali   │   │ Windows  │   │ Android  │
-        │ Attacker │   │  Victim  │   │  Victim  │
-        └──────────┘   └──────────┘   └──────────┘
-        10.0.0.2/24       Planned         Planned
+              ┌───────────────┼───────────────┐
+              │               │               │
+              ▼               ▼               ▼
+        ┌──────────┐    ┌──────────┐    ┌──────────┐
+        │ 🐉 Kali  │    │ 🪟 Windows│    │ 📱 Android│
+        │ Attacker │    │  Victim  │    │  Victim  │
+        └──────────┘    └──────────┘    └──────────┘
+        10.0.0.2/24       Planned          Planned
+💻 Lab Environment
+🖥️ Host Machine
+Component	Details
+Operating System	Windows
+Virtualization	Oracle VirtualBox
+Lab Type	Isolated Virtual Cybersecurity Lab
+CPU	[ADD YOUR CPU]
+RAM	[ADD YOUR RAM]
+Storage	[ADD YOUR STORAGE]
+VirtualBox Version	[ADD VERSION]
+🐉 Kali Linux
+Component	Details
+OS	Kali Linux 2026.2
+Architecture	AMD64
+Platform	Oracle VirtualBox
+Role	Attacker Machine
+IP Address	10.0.0.2/24
+🌐 Network Configuration
+🔵 CyberLab NAT Network
+Setting	Value
+Network Type	NAT Network
+Network Name	CyberLab
+IP Range	10.0.0.0/24
+Subnet Mask	255.255.255.0
+DHCP	Disabled
+Kali IP	10.0.0.2/24
+Why this network?
 
----
+The 10.0.0.0/24 private network provides predictable addressing and controlled communication between the laboratory machines.
 
-# 💻 Environment
+⚙️ Step-by-Step Setup
+01 — 📦 VirtualBox Setup
 
-## 🖥️ Host Machine
+Oracle VirtualBox was used as the virtualization platform.
 
-| Component | Details |
-|:--|:--|
-| Operating System | Windows |
-| Virtualization Platform | Oracle VirtualBox |
-| Lab Type | Isolated Virtual Cybersecurity Lab |
+Why?
 
----
+To run isolated operating-system environments required for the cybersecurity laboratory.
 
-## 🐉 Kali Linux — Attacker Machine
+Status: 🟢 Completed
 
-| Component | Details |
-|:--|:--|
-| Operating System | Kali Linux 2026.2 |
-| Architecture | AMD64 |
-| Virtualization | Oracle VirtualBox |
-| Role | Attacker Machine |
-| IP Address | `10.0.0.2/24` |
+02 — 🐉 Kali Linux Deployment
 
----
+A pre-built Kali Linux VirtualBox image was downloaded and imported.
 
-# 🌐 Network Configuration
+Why?
 
-The cybersecurity laboratory uses a dedicated **VirtualBox NAT Network** to provide controlled communication between the virtual machines.
+The pre-built image provides a ready-to-use Kali environment and avoids unnecessary manual installation steps.
 
-## 🔵 CyberLab Network
+Status: 🟢 Completed
 
-```text
-┌──────────────────────────────────────┐
-│              CyberLab                │
-├──────────────────────────────────────┤
-│ Network      : 10.0.0.0/24           │
-│ Subnet Mask  : 255.255.255.0         │
-│ DHCP         : Disabled              │
-│ Kali IP      : 10.0.0.2              │
-└──────────────────────────────────────┘
----
+03 — 🌐 Create CyberLab Network
 
-# 🔗 Resources & References
+A NAT Network named CyberLab was created in VirtualBox.
 
-### 🐉 Kali Linux
+Network : 10.0.0.0/24
+DHCP    : Disabled
 
-Official Kali Linux documentation and downloads were used for the virtual machine setup.
+Why?
 
-🔗 [Kali Linux — Official Website](https://www.kali.org/)
+To provide a controlled network for the cybersecurity lab machines.
 
----
+Status: 🟢 Completed
 
-### 📦 Oracle VirtualBox
+04 — 📡 Configure Kali IP
 
-VirtualBox was used as the virtualization platform for creating and managing the cybersecurity lab.
+Kali was configured with:
 
-🔗 [Oracle VirtualBox — Official Website](https://www.virtualbox.org/)
+IP Address  : 10.0.0.2
+CIDR        : /24
+Subnet Mask : 255.255.255.0
 
----
+The configuration was checked using:
 
-### 🗜️ 7-Zip
+ip addr
 
-7-Zip was used to extract the downloaded Kali Linux VirtualBox image.
+Status: 🟢 Completed
 
-🔗 [7-Zip — Official Website](https://www.7-zip.org/)
+🧪 Verification Tests
+🔎 Test 01 — ip addr
+ip addr
 
----
+Purpose: Verify the Kali network interface and assigned IP.
 
-### 🎓 Training & Lab Instructions
+Expected:
 
-This laboratory was developed as part of the practical cybersecurity training and instructor-provided Week 1 lab instructions.
+10.0.0.2/24
 
-**Training:** NetworkWalks Academy
+🟢 Result: PASS
 
----
+🌍 Test 02 — Internet Connectivity
+ping google.com
 
-> 📚 **Note:**  
-> All tools and resources were used for educational and authorized cybersecurity laboratory practice.
+Purpose: Verify that the Kali VM has working internet connectivity.
+
+🟢 Result: PASS
+
+🔗 Test 03 — Gateway Connectivity
+ping <GATEWAY-IP>
+
+Purpose: Verify connectivity between Kali and the configured virtual network gateway.
+
+🟡 Status: To be documented when gateway testing is performed.
+
+🖥️ Test 04 — VM-to-VM Connectivity
+
+After the Windows victim VM is configured:
+
+ping <WINDOWS-IP>
+
+Purpose: Verify communication between the Kali attacker and Windows victim.
+
+🟡 Status: Planned for the next phase.
+
+📸 Screenshots
+
+Screenshots are included as evidence of the actual lab configuration.
+
+🌐 CyberLab Network
+
+Evidence: CyberLab NAT Network configured with 10.0.0.0/24.
+
+🐉 Kali IP Configuration
+
+Evidence: Kali configured with 10.0.0.2/24.
+
+🌍 Internet Connectivity
+
+Evidence: Internet connectivity verified using ping.
+
+💾 Week 1 Snapshot
+
+Evidence: Clean Week 1 recovery snapshot created.
+
+⚠️ Problems & Solutions
+Problem	Solution
+Kali installer setup was taking unnecessary steps	Used the pre-built Kali VirtualBox image
+VMware vs VirtualBox confusion	Followed the lab requirement and used Oracle VirtualBox
+Large Kali VM download	Downloaded the complete archive and extracted it using 7-Zip
+
+💡 Key Learning: Using the correct virtualization platform and VM image simplified the overall lab setup.
+
+💾 Snapshot & Backup Strategy
+
+After completing the Week 1 configuration, a clean snapshot was created:
+
+📸 Kali-Week1-Complete
+
+The snapshot provides a known-good recovery point before future cybersecurity experiments.
+
+🟢 Clean Kali Environment
+          │
+          ▼
+📸 Kali-Week1-Complete
+          │
+          ▼
+🧪 Future Experiments
+          │
+     ┌────┴────┐
+     ▼         ▼
+   Success   Failure
+                │
+                ▼
+          🔄 Restore
+            Snapshot
+                │
+                ▼
+          🟢 Clean State
+
+⚠️ Snapshots are useful for VM recovery but should not replace independent backups of important files.
+
+🧠 What I Learned
+🌐 Networking
+IPv4 addressing
+CIDR notation
+/24 subnetting
+Static IP configuration
+NAT Networks
+Connectivity testing
+🐧 Linux
+Network interface inspection
+ip addr
+ping
+Basic network configuration
+🖥️ Virtualization
+Virtual machine management
+VirtualBox networking
+Pre-built VM deployment
+VM snapshots
+Recovery points
+🔐 Cybersecurity
+Importance of isolated labs
+Attacker/Victim architecture
+Controlled security testing
+Safe experimentation
+Lab documentation
+🧰 Tools & Resources
+Tool / Resource	Purpose
+🐉 Kali Linux	Security testing environment
+📦 Oracle VirtualBox	Virtualization
+🗜️ 7-Zip	VM archive extraction
+🐧 Linux Terminal	Network configuration
+ip addr	Interface inspection
+ping	Connectivity testing
+🔧 Git	Version control
+🐙 GitHub	Project documentation
+🎓 NetworkWalks Academy	Cybersecurity training
+🎥 Project Demo
+
+A short video demonstration of the Week 1 laboratory setup will be added here.
+
+🎬 Demo Includes
+VirtualBox lab environment
+CyberLab network configuration
+Kali Linux setup
+IP configuration
+Connectivity verification
+Snapshot creation
+
+📌 Video: [ADD YOUR VIDEO LINK HERE]
+
+🚀 Next Steps
+🪟 Windows Victim Environment
+ Deploy Windows 10/11 VM
+ Connect Windows to CyberLab
+ Configure Windows IP
+ Test Kali ↔ Windows connectivity
+🔎 Network Testing
+ Network discovery
+ Host identification
+ Service enumeration
+ Controlled penetration-testing exercises
+📱 Additional Environment
+ Prepare Android testing environment
+ Connect Android to the lab
+ Document configuration
+💾 Recovery
+ Create Windows baseline snapshot
+ Maintain recovery points before major experiments
+👨‍💻 Author
+<div align="center">
+[YOUR NAME]
+
+🎓 Batch: B082
+
+🔐 Cybersecurity • Ethical Hacking • Networking • Linux
+
+</div>
+⚠️ Disclaimer
+
+🔐 Educational & Authorized Use Only
+
+This repository is created strictly for educational cybersecurity practice.
+
+All security testing must be performed only against systems that I own or have explicit permission to test.
+
+The tools and techniques documented here must not be used for unauthorized access, exploitation, disruption or malicious activity.
+
+<p align="center">
+🔐 Learn • Build • Test • Document • Repeat 🚀
+
+<b>Week 1 — Cybersecurity Practical Lab</b>
+
+</p> ```
