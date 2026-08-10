@@ -162,7 +162,8 @@ ip addr
 
 ### 🌐 CyberLab Network
 
-![CyberLab Network](screenshots/01-nat-network.png)
+![CyberLab Network]<img width="720" height="1600" alt="WhatsApp Image 2026-07-26 at 9 53 12 PM (1)" src="https://github.com/user-attachments/assets/501b99c1-3611-4458-a960-0e717f2513bd" />
+
 
 *VirtualBox NAT Network configured with `10.0.0.0/24`.*
 
@@ -170,7 +171,8 @@ ip addr
 
 ### 🐉 Kali IP Configuration
 
-![Kali IP Configuration](screenshots/02-kali-ip.png)
+![Kali IP Configuration]<img width="720" height="1600" alt="WhatsApp Image 2026-07-26 at 9 53 12 PM" src="https://github.com/user-attachments/assets/1c9e7a53-a2f6-467a-89e0-acaa66cd8132" />
+
 
 *Kali Linux configured with `10.0.0.2/24`.*
 ---
@@ -207,7 +209,8 @@ ping google.com
 
 🟢 **Result: Verified**
 
-![Internet Connectivity](screenshots/03-connectivity.png)
+![Internet Connectivity]<img width="1078" height="1390" alt="WhatsApp Image 2026-07-27 at 3 09 05 PM" src="https://github.com/user-attachments/assets/49a0f4fe-cc1d-4eb6-b85a-25a2293e9d57" />
+
 
 ---
 
