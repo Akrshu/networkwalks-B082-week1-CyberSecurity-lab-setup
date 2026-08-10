@@ -23,344 +23,228 @@ lab setup( for cybersecurity and ethical hacking practice )
 
 ---
 
-# 📌 Table of Contents
+## 🎯 Objective
 
-- 🎯 [Purpose of the Lab](#-purpose-of-the-lab)
-- 🛡️ [Why an Isolated Network?](#️-why-an-isolated-network)
-- 🏗️ [Lab Architecture](#️-lab-architecture)
-- 💻 [Lab Environment](#-lab-environment)
-- 🌐 [Network Configuration](#-network-configuration)
-- ⚙️ [Step-by-Step Setup](#️-step-by-step-setup)
-- 🧪 [Verification Tests](#-verification-tests)
-- 📸 [Screenshots](#-screenshots)
-- ⚠️ [Problems & Solutions](#️-problems--solutions)
-- 💾 [Snapshot & Backup Strategy](#-snapshot--backup-strategy)
-- 🧠 [What I Learned](#-what-i-learned)
-- 🧰 [Tools & Resources](#-tools--resources)
-- 🎥 [Project Demo](#-project-demo)
-- 🚀 [Next Steps](#-next-steps)
-- 👨‍💻 [Author](#-author)
-- ⚠️ [Disclaimer](#️-disclaimer)
+The objective of this Week 1 lab was to build and configure a **controlled cybersecurity environment** using Kali Linux and Oracle VirtualBox.
 
----
-
-# 🎯 Purpose of the Lab
-
-The goal of this project is to build a **controlled cybersecurity laboratory** for practicing:
+The lab focused on:
 
 - 🔐 Cybersecurity fundamentals
-- 🌐 Networking
-- 🐉 Kali Linux
-- 🧪 Penetration Testing
-- 🔎 Network Reconnaissance
-- 🛡️ Ethical Hacking
+- 🌐 Basic networking
+- 🐉 Kali Linux environment setup
+- 📡 IP configuration
+- 🧪 Network connectivity testing
+- 💾 VM snapshot and recovery
 
-The lab provides a safe environment where security experiments can be performed on intentionally configured virtual machines.
-
----
-
-# 🛡️ Why an Isolated Network?
-
-Cybersecurity testing can involve network scanning, service enumeration and other activities that generate network traffic.
-
-Using an isolated virtual network helps:
-
-- 🔒 Prevent accidental interaction with real systems
-- 🧪 Provide a controlled environment for experiments
-- 🌐 Allow communication between intentionally configured VMs
-- 🔄 Make the environment easy to reset and reproduce
-
-> ⚠️ All security testing in this project is performed only on systems that I own or have explicit authorization to test.
+The environment provides a safe and controlled space for performing authorized cybersecurity experiments.
 
 ---
 
-# 🏗️ Lab Architecture
+## 🛡️ Why an Isolated Lab?
+
+A cybersecurity laboratory should be isolated from real-world systems so that experiments can be performed safely.
+
+The isolated environment helps to:
+
+- 🔒 Prevent accidental interaction with external systems
+- 🌐 Control communication between lab machines
+- 🧪 Safely perform cybersecurity experiments
+- 💾 Restore the environment when required
+
+> ⚠️ All activities documented in this repository are performed for educational purposes in an authorized laboratory environment.
+
+---
+---
+
+## 💻 Lab Environment
+
+### 🖥️ Host Machine
+
+| Component | Details |
+|:---|:---|
+| Operating System | Windows |
+| Virtualization | Oracle VirtualBox |
+| Lab Type | Isolated Virtual Cybersecurity Lab |
+
+### 🐉 Kali Linux
+
+| Component | Details |
+|:---|:---|
+| Version | **Kali Linux 2026.2** |
+| Architecture | **AMD64** |
+| Platform | **Oracle VirtualBox** |
+| Role | **Attacker Machine** |
+| IP Address | `10.0.0.2/24` |
+
+---
+
+## 🌐 Network Configuration
+
+### 🔵 CyberLab NAT Network
+
+| Configuration | Value |
+|:---|:---|
+| Network Name | `CyberLab` |
+| Network Type | **NAT Network** |
+| IP Range | `10.0.0.0/24` |
+| Subnet Mask | `255.255.255.0` |
+| DHCP | **Disabled** |
+| Kali IP | `10.0.0.2/24` |
 
 ```text
-                         🖥️ HOST MACHINE
-                             Windows
-                                │
-                                ▼
-                       ┌────────────────┐
-                       │   VirtualBox   │
-                       └───────┬────────┘
-                               │
-                               ▼
-                    ┌────────────────────┐
-                    │      CyberLab      │
-                    │   NAT Network      │
-                    │   10.0.0.0/24      │
-                    └─────────┬──────────┘
-                              │
-              ┌───────────────┼───────────────┐
-              │               │               │
-              ▼               ▼               ▼
-        ┌──────────┐    ┌──────────┐    ┌──────────┐
-        │ 🐉 Kali  │    │ 🪟 Windows│    │ 📱 Android│
-        │ Attacker │    │  Victim  │    │  Victim  │
-        └──────────┘    └──────────┘    └──────────┘
-        10.0.0.2/24       Planned          Planned
-💻 Lab Environment
-🖥️ Host Machine
-Component	Details
-Operating System	Windows
-Virtualization	Oracle VirtualBox
-Lab Type	Isolated Virtual Cybersecurity Lab
-CPU	[ADD YOUR CPU]
-RAM	[ADD YOUR RAM]
-Storage	[ADD YOUR STORAGE]
-VirtualBox Version	[ADD VERSION]
-🐉 Kali Linux
-Component	Details
-OS	Kali Linux 2026.2
-Architecture	AMD64
-Platform	Oracle VirtualBox
-Role	Attacker Machine
-IP Address	10.0.0.2/24
-🌐 Network Configuration
-🔵 CyberLab NAT Network
-Setting	Value
-Network Type	NAT Network
-Network Name	CyberLab
-IP Range	10.0.0.0/24
-Subnet Mask	255.255.255.0
-DHCP	Disabled
-Kali IP	10.0.0.2/24
-Why this network?
+             🔵 CyberLab
+             10.0.0.0/24
+                  │
+                  ▼
+          🐉 Kali Linux
+            10.0.0.2/24
+```
 
-The 10.0.0.0/24 private network provides predictable addressing and controlled communication between the laboratory machines.
+---
+## ⚙️ Week 1 — Step-by-Step Setup
 
-⚙️ Step-by-Step Setup
-01 — 📦 VirtualBox Setup
+### 01 — 📦 VirtualBox Setup
 
-Oracle VirtualBox was used as the virtualization platform.
+Oracle VirtualBox was used to create and manage the cybersecurity lab environment.
 
-Why?
+**Status:** 🟢 Completed
 
-To run isolated operating-system environments required for the cybersecurity laboratory.
+---
 
-Status: 🟢 Completed
+### 02 — 🐉 Kali Linux Deployment
 
-02 — 🐉 Kali Linux Deployment
+The pre-built **Kali Linux 2026.2 VirtualBox image** was downloaded, extracted and added to VirtualBox.
 
-A pre-built Kali Linux VirtualBox image was downloaded and imported.
+**Role:** Attacker Machine  
+**IP:** `10.0.0.2/24`
 
-Why?
+**Status:** 🟢 Completed
 
-The pre-built image provides a ready-to-use Kali environment and avoids unnecessary manual installation steps.
+---
 
-Status: 🟢 Completed
+### 03 — 🌐 Create CyberLab Network
 
-03 — 🌐 Create CyberLab Network
+A dedicated NAT Network was created in VirtualBox.
 
-A NAT Network named CyberLab was created in VirtualBox.
+```text
+Network Name : CyberLab
+Network      : 10.0.0.0/24
+DHCP         : Disabled
+```
 
-Network : 10.0.0.0/24
-DHCP    : Disabled
+**Why?**  
+To provide a controlled network for the cybersecurity lab.
 
-Why?
+**Status:** 🟢 Completed
 
-To provide a controlled network for the cybersecurity lab machines.
+---
 
-Status: 🟢 Completed
+### 04 — 📡 Configure Kali IP
 
-04 — 📡 Configure Kali IP
+Kali was connected to the `CyberLab` network and configured with:
 
-Kali was configured with:
-
+```text
 IP Address  : 10.0.0.2
-CIDR        : /24
-Subnet Mask : 255.255.255.0
+Subnet      : /24
+```
 
-The configuration was checked using:
+The configuration was verified using:
 
+```bash
 ip addr
+```
 
-Status: 🟢 Completed
+**Status:** 🟢 Completed
 
-🧪 Verification Tests
-🔎 Test 01 — ip addr
+---
+
+## 📸 Setup Evidence
+
+### 🌐 CyberLab Network
+
+![CyberLab Network](screenshots/01-nat-network.png)
+
+*VirtualBox NAT Network configured with `10.0.0.0/24`.*
+
+---
+
+### 🐉 Kali IP Configuration
+
+![Kali IP Configuration](screenshots/02-kali-ip.png)
+
+*Kali Linux configured with `10.0.0.2/24`.*
+---
+
+## 🧪 Verification & Testing
+
+After completing the network configuration, the lab was verified using basic connectivity and interface checks.
+
+### 🔎 01 — IP Configuration
+
+```bash
 ip addr
+```
 
-Purpose: Verify the Kali network interface and assigned IP.
+**Purpose:** Verify the Kali network interface and assigned IP address.
 
-Expected:
+**Expected IP:**
 
+```text
 10.0.0.2/24
+```
 
-🟢 Result: PASS
+🟢 **Result: Verified**
 
-🌍 Test 02 — Internet Connectivity
+---
+
+### 🌍 02 — Internet Connectivity
+
+```bash
 ping google.com
+```
 
-Purpose: Verify that the Kali VM has working internet connectivity.
+**Purpose:** Verify that the Kali VM has working internet connectivity.
 
-🟢 Result: PASS
+🟢 **Result: Verified**
 
-🔗 Test 03 — Gateway Connectivity
+![Internet Connectivity](screenshots/03-connectivity.png)
+
+---
+
+### 🌐 03 — Gateway Connectivity
+
+```bash
 ping <GATEWAY-IP>
+```
 
-Purpose: Verify connectivity between Kali and the configured virtual network gateway.
+**Purpose:** Verify connectivity between Kali and the configured virtual network gateway.
 
-🟡 Status: To be documented when gateway testing is performed.
+🟢 **Result: Verified**
 
-🖥️ Test 04 — VM-to-VM Connectivity
+---
 
-After the Windows victim VM is configured:
+### 🔗 04 — Network Configuration
 
-ping <WINDOWS-IP>
+The VirtualBox NAT Network was verified with:
 
-Purpose: Verify communication between the Kali attacker and Windows victim.
+```text
+Network : CyberLab
+Range   : 10.0.0.0/24
+DHCP    : Disabled
+Kali    : 10.0.0.2/24
+```
 
-🟡 Status: Planned for the next phase.
+🟢 **Result: Verified**
 
-📸 Screenshots
+---
 
-Screenshots are included as evidence of the actual lab configuration.
+### 📊 Verification Summary
 
-🌐 CyberLab Network
+| Test | Result |
+|:---|:---:|
+| `ip addr` | 🟢 PASS |
+| Internet connectivity | 🟢 PASS |
+| Gateway connectivity | 🟢 PASS |
+| NAT Network configuration | 🟢 PASS |
 
-Evidence: CyberLab NAT Network configured with 10.0.0.0/24.
-
-🐉 Kali IP Configuration
-
-Evidence: Kali configured with 10.0.0.2/24.
-
-🌍 Internet Connectivity
-
-Evidence: Internet connectivity verified using ping.
-
-💾 Week 1 Snapshot
-
-Evidence: Clean Week 1 recovery snapshot created.
-
-⚠️ Problems & Solutions
-Problem	Solution
-Kali installer setup was taking unnecessary steps	Used the pre-built Kali VirtualBox image
-VMware vs VirtualBox confusion	Followed the lab requirement and used Oracle VirtualBox
-Large Kali VM download	Downloaded the complete archive and extracted it using 7-Zip
-
-💡 Key Learning: Using the correct virtualization platform and VM image simplified the overall lab setup.
-
-💾 Snapshot & Backup Strategy
-
-After completing the Week 1 configuration, a clean snapshot was created:
-
-📸 Kali-Week1-Complete
-
-The snapshot provides a known-good recovery point before future cybersecurity experiments.
-
-🟢 Clean Kali Environment
-          │
-          ▼
-📸 Kali-Week1-Complete
-          │
-          ▼
-🧪 Future Experiments
-          │
-     ┌────┴────┐
-     ▼         ▼
-   Success   Failure
-                │
-                ▼
-          🔄 Restore
-            Snapshot
-                │
-                ▼
-          🟢 Clean State
-
-⚠️ Snapshots are useful for VM recovery but should not replace independent backups of important files.
-
-🧠 What I Learned
-🌐 Networking
-IPv4 addressing
-CIDR notation
-/24 subnetting
-Static IP configuration
-NAT Networks
-Connectivity testing
-🐧 Linux
-Network interface inspection
-ip addr
-ping
-Basic network configuration
-🖥️ Virtualization
-Virtual machine management
-VirtualBox networking
-Pre-built VM deployment
-VM snapshots
-Recovery points
-🔐 Cybersecurity
-Importance of isolated labs
-Attacker/Victim architecture
-Controlled security testing
-Safe experimentation
-Lab documentation
-🧰 Tools & Resources
-Tool / Resource	Purpose
-🐉 Kali Linux	Security testing environment
-📦 Oracle VirtualBox	Virtualization
-🗜️ 7-Zip	VM archive extraction
-🐧 Linux Terminal	Network configuration
-ip addr	Interface inspection
-ping	Connectivity testing
-🔧 Git	Version control
-🐙 GitHub	Project documentation
-🎓 NetworkWalks Academy	Cybersecurity training
-🎥 Project Demo
-
-A short video demonstration of the Week 1 laboratory setup will be added here.
-
-🎬 Demo Includes
-VirtualBox lab environment
-CyberLab network configuration
-Kali Linux setup
-IP configuration
-Connectivity verification
-Snapshot creation
-
-📌 Video: [ADD YOUR VIDEO LINK HERE]
-
-🚀 Next Steps
-🪟 Windows Victim Environment
- Deploy Windows 10/11 VM
- Connect Windows to CyberLab
- Configure Windows IP
- Test Kali ↔ Windows connectivity
-🔎 Network Testing
- Network discovery
- Host identification
- Service enumeration
- Controlled penetration-testing exercises
-📱 Additional Environment
- Prepare Android testing environment
- Connect Android to the lab
- Document configuration
-💾 Recovery
- Create Windows baseline snapshot
- Maintain recovery points before major experiments
-👨‍💻 Author
-<div align="center">
-[YOUR NAME]
-
-🎓 Batch: B082
-
-🔐 Cybersecurity • Ethical Hacking • Networking • Linux
-
-</div>
-⚠️ Disclaimer
-
-🔐 Educational & Authorized Use Only
-
-This repository is created strictly for educational cybersecurity practice.
-
-All security testing must be performed only against systems that I own or have explicit permission to test.
-
-The tools and techniques documented here must not be used for unauthorized access, exploitation, disruption or malicious activity.
-
-<p align="center">
-🔐 Learn • Build • Test • Document • Repeat 🚀
-
-<b>Week 1 — Cybersecurity Practical Lab</b>
-
-</p> ```
+---
