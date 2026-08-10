@@ -162,7 +162,8 @@ ip addr
 
 ### 🌐 CyberLab Network
 
-![CyberLab Network]<img width="720" height="1600" alt="WhatsApp Image 2026-07-26 at 9 53 12 PM (1)" src="https://github.com/user-attachments/assets/501b99c1-3611-4458-a960-0e717f2513bd" />
+![CyberLab Network]<img width="955" height="697" alt="image" src="https://github.com/user-attachments/assets/fd9033fe-3436-4c0b-a93d-3ef183dbb6e2" />
+
 
 
 *VirtualBox NAT Network configured with `10.0.0.0/24`.*
@@ -171,7 +172,8 @@ ip addr
 
 ### 🐉 Kali IP Configuration
 
-![Kali IP Configuration]<img width="720" height="1600" alt="WhatsApp Image 2026-07-26 at 9 53 12 PM" src="https://github.com/user-attachments/assets/1c9e7a53-a2f6-467a-89e0-acaa66cd8132" />
+![Kali IP Configuration]<img width="1040" height="488" alt="image" src="https://github.com/user-attachments/assets/2adcf3d5-194e-49e4-b43d-86dec8af50d2" />
+
 
 
 *Kali Linux configured with `10.0.0.2/24`.*
@@ -209,7 +211,8 @@ ping google.com
 
 🟢 **Result: Verified**
 
-![Internet Connectivity]<img width="1078" height="1390" alt="WhatsApp Image 2026-07-27 at 3 09 05 PM" src="https://github.com/user-attachments/assets/49a0f4fe-cc1d-4eb6-b85a-25a2293e9d57" />
+![Internet Connectivity]<img width="422" height="331" alt="image" src="https://github.com/user-attachments/assets/79ea126e-a389-499c-8123-f43402e085ef" />
+
 
 
 ---
