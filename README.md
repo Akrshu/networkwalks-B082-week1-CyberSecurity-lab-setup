@@ -104,3 +104,83 @@ The planned laboratory consists of an attacker machine and controlled victim env
         │ Attacker │   │  Victim  │   │  Victim  │
         └──────────┘   └──────────┘   └──────────┘
         10.0.0.2/24       Planned         Planned
+
+---
+
+# 💻 Environment
+
+## 🖥️ Host Machine
+
+| Component | Details |
+|:--|:--|
+| Operating System | Windows |
+| Virtualization Platform | Oracle VirtualBox |
+| Lab Type | Isolated Virtual Cybersecurity Lab |
+
+---
+
+## 🐉 Kali Linux — Attacker Machine
+
+| Component | Details |
+|:--|:--|
+| Operating System | Kali Linux 2026.2 |
+| Architecture | AMD64 |
+| Virtualization | Oracle VirtualBox |
+| Role | Attacker Machine |
+| IP Address | `10.0.0.2/24` |
+
+---
+
+# 🌐 Network Configuration
+
+The cybersecurity laboratory uses a dedicated **VirtualBox NAT Network** to provide controlled communication between the virtual machines.
+
+## 🔵 CyberLab Network
+
+```text
+┌──────────────────────────────────────┐
+│              CyberLab                │
+├──────────────────────────────────────┤
+│ Network      : 10.0.0.0/24           │
+│ Subnet Mask  : 255.255.255.0         │
+│ DHCP         : Disabled              │
+│ Kali IP      : 10.0.0.2              │
+└──────────────────────────────────────┘
+---
+
+# 🔗 Resources & References
+
+### 🐉 Kali Linux
+
+Official Kali Linux documentation and downloads were used for the virtual machine setup.
+
+🔗 [Kali Linux — Official Website](https://www.kali.org/)
+
+---
+
+### 📦 Oracle VirtualBox
+
+VirtualBox was used as the virtualization platform for creating and managing the cybersecurity lab.
+
+🔗 [Oracle VirtualBox — Official Website](https://www.virtualbox.org/)
+
+---
+
+### 🗜️ 7-Zip
+
+7-Zip was used to extract the downloaded Kali Linux VirtualBox image.
+
+🔗 [7-Zip — Official Website](https://www.7-zip.org/)
+
+---
+
+### 🎓 Training & Lab Instructions
+
+This laboratory was developed as part of the practical cybersecurity training and instructor-provided Week 1 lab instructions.
+
+**Training:** NetworkWalks Academy
+
+---
+
+> 📚 **Note:**  
+> All tools and resources were used for educational and authorized cybersecurity laboratory practice.
