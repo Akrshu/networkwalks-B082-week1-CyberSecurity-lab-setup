@@ -174,7 +174,7 @@ ip addr
 
 ### 🐉 Kali IP Configuration
 
-![Kali IP Configuration]<img width="1756" height="961" alt="image" src="https://github.com/user-attachments/assets/c7dbd33b-3ea3-4c1a-aef2-411afeabaf2a" />
+![Kali IP Configuration]<img width="1736" height="903" alt="image" src="https://github.com/user-attachments/assets/18361e86-a476-418b-a042-635201221921" />
 
 
 ![Checking_Network_Connectivity]<img width="873" height="796" alt="image" src="https://github.com/user-attachments/assets/a63e4a4d-69d6-4c9a-b247-62f3dcc6e364" />
